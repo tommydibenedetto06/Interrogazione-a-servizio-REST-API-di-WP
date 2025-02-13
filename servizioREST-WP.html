@@ -1,1 +1,29 @@
-# Interrogazione-a-servizio-REST-API-di-WP
+<html>
+<head>
+ <link rel="stylesheet" href="https://tom681.wordpress.com/wp-json/wp/v2/posts">
+<script>
+var stringa="";
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+      for(var x in myObj){
+        stringa += "<tr><td>" + myObj[x].id + "</td><td> " + myObj[x].title.rendered + "</td></tr>";
+        document.getElementById("demo").innerHTML=stringa;
+      }
+  }
+};
+xmlhttp.open("GET", "https://tom681.wordpress.com/wp-json/wp/v2/posts", true);
+xmlhttp.send();
+
+</script>
+</head>
+
+<body>
+
+<table id="demo" class="table table-dark"></table></p>
+
+
+</body>
+</html>
+</html>
